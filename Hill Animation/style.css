@@ -1,0 +1,99 @@
+*{
+padding: 0;
+margin: 0;
+}
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    background-color: skyblue;
+    width: 40vw;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.ground{
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background-color: #dece6f;
+    top: 64.9%;
+    display: flex;
+    justify-content: center;
+
+}
+.shadow{
+    height: 100%;
+    width: 150%;
+    background-color: rgba(0,0,0,0.35); /* specifies the opacity for a color */
+
+    /* The clip-path CSS property creates a clipping region that sets what part of an element should be shown. 
+       Parts that are inside the region are shown, while those outside are hidden. */
+    clip-path: polygon(15% 0,100% 20%,85% 0);
+    animation:shadow 3.5s linear infinite
+}
+@keyframes shadow{
+    0%{clip-path: polygon(15% 0,100% 20%,85% 0%);}
+    30%,50%{clip-path: polygon(15% 0,100% 40%,84% 0%);}
+    100%{clip-path: polygon(15% 0,0 50%,84% 0);}
+}
+.pyramid{
+    position: absolute;
+    height: 30%;
+    width: 70%;
+    display: flex;
+}
+.left{
+    height: 100%;
+    width: 70%;
+    background-color: #f0f0f0;
+    clip-path:polygon(79% 0,0 100%,100% 100%);
+    position: absolute;
+    z-index: 1;
+    animation: left 3.5s linear infinite;
+}
+@keyframes left{
+ 0%{ background-color: #c3c1c3;}
+ 30%,70%{ background-color: #dadada;}
+}
+.right{
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    background-color: #c3c1c3;
+    clip-path: polygon(36% 0,100% 100%,21% 100%);
+    left: 30%;
+    animation: right 3.5s linear infinite;
+}
+@keyframes right{
+    0%{ background-color: #919191;}
+    30%,50%{ background-color: #c3c1c3;}
+}
+.sky{
+    position: absolute;
+    height: 170%;
+    width: 170%;
+    top: 40%;
+    transform: rotate(0deg);
+    animation: sky 3.5s linear infinite;
+}
+@keyframes sky{
+    0%{transform: rotateZ(0deg);}
+    30%,50%{transform: rotateZ(30deg);}
+    100%{transform: rotateZ(90deg);}
+}
+.sun{
+    position: absolute;
+    height: 13%;
+    width: 13%;
+    background-color: #fee401;
+    border-radius: 50%;
+}
